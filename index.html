@@ -29,6 +29,7 @@ button{font:inherit;border:0;border-radius:10px;padding:12px;color:#fff;cursor:p
 .hit{background:var(--a)}.miss{background:var(--c)}.wait{background:var(--mut)}
 .pl{font-size:12px;font-weight:600;color:var(--mut);border:1px solid var(--mut);border-radius:20px;padding:1px 8px;margin-left:6px;vertical-align:middle}.note{color:var(--mut);font-size:12px;margin-top:16px}
 .nav{background:var(--card);color:var(--fg);text-align:center}
+.ic{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;border:0;padding:0;color:#fff;font-weight:800;font-size:12px;text-decoration:none;cursor:pointer}.ic svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 a.lk{display:block;background:var(--card);border-radius:14px;padding:14px;margin-bottom:12px;color:var(--fg);text-decoration:none}a.lk b{display:block}a.lk span{font-size:13px;color:var(--mut)}
 table{width:100%;border-collapse:collapse;font-size:14px}td{padding:6px 4px;border-bottom:1px solid rgba(128,128,128,.2)}.sun{color:#d0504a}
 </style></head><body><main id="app"></main>
@@ -116,8 +117,18 @@ function yoso(){
 }
 const shareUrl=()=>location.href.split("?")[0].split("#")[0];
 function shareCard(){const u=encodeURIComponent(shareUrl());const t=encodeURIComponent("フェリー、出るの？出ないの？｜島のみんなの予想サイト");
- const a=(h,n)=>`<a class="lk" style="margin:0" target="_blank" rel="noopener" href="${h}"><b>${n}</b></a>`;
- return `<div class="card" style="margin-top:14px"><div class="day">このページを共有する</div><div class="opts"><button class="blue" style="margin:0" onclick="shareNative()">共有する（スマホの共有メニュー）</button><button class="nav" onclick="copyLink()">リンクをコピー</button>${a("https://line.me/R/msg/text/?"+t+"%0A"+u,"LINEで送る")}${a("https://twitter.com/intent/tweet?text="+t+"&url="+u,"Xで投稿")}${a("https://www.facebook.com/sharer/sharer.php?u="+u,"Facebookで共有")}</div><div class="sub" id="shmsg" style="margin-top:8px"></div></div>`}
+ const cell=(el,label)=>`<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:0">${el}<span style="font-size:10.5px;color:var(--mut);white-space:nowrap">${label}</span></div>`;
+ const A=(href,bg,inner,label)=>cell(`<a class="ic" aria-label="${label}" target="_blank" rel="noopener" href="${href}" style="background:${bg}">${inner}</a>`,label);
+ const B=(fn,bg,inner,label)=>cell(`<button class="ic" aria-label="${label}" onclick="${fn}" style="background:${bg}">${inner}</button>`,label);
+ return `<div class="card" style="margin-top:14px"><div class="day">このページを共有する</div><div style="display:flex;gap:6px;justify-content:space-between">`+
+ B("shareNative()","#2f6fdc",'<svg viewBox="0 0 24 24"><path d="M12 15V3M8 7l4-4 4 4M5 12v7h14v-7"/></svg>',"共有")+
+ B("copyLink()","#5b6b75",'<svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>',"コピー")+
+ A("https://line.me/R/msg/text/?"+t+"%0A"+u,"#06C755","LINE","LINE")+
+ A("https://twitter.com/intent/tweet?text="+t+"&url="+u,"#111",'<svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg>',"X")+
+ A("https://www.facebook.com/sharer/sharer.php?u="+u,"#1877F2",'<span style="font-size:26px;font-family:Georgia,serif">f</span>',"Facebook")+
+ B("igShare()","linear-gradient(45deg,#f9a03f,#e1306c,#833ab4)",'<svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6"/></svg>',"Instagram")+
+ `</div><div class="sub" id="shmsg" style="margin-top:10px;margin-bottom:0"></div></div>`}
+function igShare(){copyLink();setTimeout(()=>{const m=document.getElementById("shmsg");if(m)m.textContent="リンクをコピーしました。Instagramの投稿・ストーリーズ・プロフィールに貼り付けてください"},400);window.open("https://www.instagram.com/","_blank")}
 function shareNative(){if(navigator.share){navigator.share({title:"フェリー、出るの？出ないの？",text:"島のみんなの予想サイト",url:shareUrl()}).catch(()=>{})}else copyLink()}
 function copyLink(){const url=shareUrl();const done=()=>{const m=document.getElementById("shmsg");if(m)m.textContent="リンクをコピーしました"};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done).catch(()=>prompt("このリンクをコピーしてください",url))}else prompt("このリンクをコピーしてください",url)}
 function pick(k,j){votes[k]=j;save();const y=window.scrollY;yoso();window.scrollTo(0,y)}
