@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>フェリー予想（試作）</title>
+<style>
+:root{--edge:#1c2b33;--bg:#f4f7f9;--fg:#1c2b33;--card:#fff;--a:#2a8f6a;--b:#e0a030;--c:#d0504a;--mut:#6b7c85}
+@media(prefers-color-scheme:dark){:root{--edge:#fff;--bg:#10181d;--fg:#e8eff2;--card:#1a262d;--mut:#8da0aa}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,sans-serif}
+main{max-width:480px;margin:0 auto;padding:16px}@media(min-width:900px){main{max-width:880px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}}
+h1{font-size:20px;margin:0 0 4px}h2{font-size:15px;margin:20px 0 8px;color:var(--mut)}.sub{color:var(--mut);font-size:13px;margin-bottom:12px}
+.tabs{display:flex;gap:6px;margin:12px 0 16px}
+.tabs button{flex:1;text-align:center;background:var(--card);color:var(--mut);padding:10px 2px;font-size:13px;border:2px solid var(--edge)}
+.sel{outline:3px solid var(--edge);outline-offset:2px}.dim{opacity:.45}
+.blue{width:100%;background:#2f6fdc;text-align:center;font-weight:700;margin-bottom:10px}
+.tabs button.on{background:var(--fg);color:var(--bg);font-weight:700}
+.card{background:var(--card);border-radius:14px;padding:14px;margin-bottom:12px}
+.card.past{opacity:.6}
+.day{font-weight:700;margin-bottom:8px}
+.opts{display:grid;gap:8px}
+button{font:inherit;border:0;border-radius:10px;padding:12px;color:#fff;cursor:pointer;text-align:left}
+.o0{background:var(--a)}.o1{background:var(--b)}.o2{background:var(--c)}
+.back{background:none;color:var(--mut);padding:0;margin-bottom:12px}
+.backbig{width:100%;margin-top:16px;background:var(--fg);color:var(--bg);text-align:center;font-weight:700}
+.me{font-size:20px;font-weight:700;margin:6px 0 12px}
+.bar{margin:8px 0}.bar .l{display:flex;justify-content:space-between;font-size:14px}
+.bar .t{height:12px;background:rgba(128,128,128,.2);border-radius:6px;overflow:hidden}
+.bar .f{height:100%}.mine{font-weight:700}
+.sum{font-size:14px;margin-top:4px}
+.hit,.miss,.wait{display:inline-block;border-radius:20px;padding:1px 10px;font-size:13px;font-weight:700;color:#fff;margin-left:6px}
+.hit{background:var(--a)}.miss{background:var(--c)}.wait{background:var(--mut)}
+.pl{font-size:12px;font-weight:600;color:var(--mut);border:1px solid var(--mut);border-radius:20px;padding:1px 8px;margin-left:6px;vertical-align:middle}.note{color:var(--mut);font-size:12px;margin-top:16px}
+.nav{background:var(--card);color:var(--fg);text-align:center}
+a.lk{display:block;background:var(--card);border-radius:14px;padding:14px;margin-bottom:12px;color:var(--fg);text-decoration:none}a.lk b{display:block}a.lk span{font-size:13px;color:var(--mut)}
+table{width:100%;border-collapse:collapse;font-size:14px}td{padding:6px 4px;border-bottom:1px solid rgba(128,128,128,.2)}.sun{color:#d0504a}
+</style></head><body><main id="app"></main>
+<script>
+const P3=[{n:"通常通り出る",c:"o0",k:"var(--a)"},{n:"日帰り便に変更して出る",c:"o1",k:"var(--b)"},{n:"欠航",c:"o2",k:"var(--c)"}];
+// 便なしの日は、振替で出るかどうかを予想する
+const P2=[{n:"予定どおり便なし",c:"o2",k:"var(--c)"},{n:"振替で出る",c:"o0",k:"var(--a)"}];
+const P3D=[P3[0],{n:"日帰り便で出る",c:"o1",k:"var(--b)"},P3[2]];
+const sched=k=>ISL==="硫黄島"?SCHED[k]:undefined;
+const opts=k=>sched(k)===""?P2:sched(k)==="出入"?P3D:P3;
+// 村の広報（令和8年10・11月）の船便予定。出＝出港／入＝入港／出入＝日帰り便。空欄の日は便なし
+const OCT="入,出入,出,入,,出入,出,入,出入,出,入,,出,入,,出,入,出入,,出入,出,入,出入,出,入,,出入,出,入,出入,出".split(",");
+const NOV="入,,出入,出,入,出,入,,出入,,出,入,出入,出,入,,,,,出入,出,入,,,,,出入,出,入,".split(",");
+const SCHED={};OCT.forEach((v,i)=>SCHED["2026-10-"+String(i+1).padStart(2,"0")]=v);NOV.forEach((v,i)=>SCHED["2026-11-"+String(i+1).padStart(2,"0")]=v);
+const tag=k=>{const v=sched(k);return v==null?"予定未掲載":v==""?"便なし":v=="出入"?"出入（日帰り便）":v=="出"?"出港":"入港"};
+const W=["日","月","火","水","木","金","土"];
+const fmt=t=>`${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,"0")}-${String(t.getDate()).padStart(2,"0")}`;
+const lab=t=>`${t.getMonth()+1}/${t.getDate()}（${W[t.getDay()]}）`;
+const now=new Date(),todayKey=fmt(now);
+const mk=off=>{const t=new Date(now);t.setDate(t.getDate()+off);return{t,key:fmt(t),label:lab(t)}};
+// 予想は前日の24時まで。明日以降の日だけ受け付ける（2週間先まで）
+const open=[...Array(14)].map((_,i)=>mk(i+1));
+const weekStart=t=>{const s=new Date(t);s.setDate(s.getDate()-((s.getDay()+6)%7));return s};
+// ※ サンプル：票の数字・実際の結果はダミー（本物ではありません）
+const seed=(key,n)=>{const d=+key.slice(-2);return [...Array(n).keys()].map(i=>((d*7+i*13)%17)+3)};
+const DEMO_VOTES={"2026-10-23":1,"2026-10-24":0,"2026-10-25":0};   // サンプルの予想（0始まり）
+const ACTUAL={"2026-10-23":1,"2026-10-24":0};const actOf=k=>ISL==="硫黄島"?ACTUAL[k]:undefined;       // サンプルの実際の結果
+const SHEET="https://docs.google.com/spreadsheets/d/1ZVWGKN5dFf_U9v9rNoGhbpI0E6kQ4eq6hgua5-iIgYE/gviz/tq?tqx=out:csv";
+const wordIdx=(key,w)=>sched(key)===""?(w=="振替"?1:(w=="欠航"||w=="便なし")?0:null):(w=="出る"?0:w=="日帰り"?1:w=="欠航"?2:null);
+const ISLANDS=["硫黄島","屋久島","宮古島"];
+let ISL="硫黄島";try{const x=localStorage.getItem("ferryIsl");if(ISLANDS.includes(x))ISL=x}catch(e){}
+const vkey=()=>ISL==="硫黄島"?"ferryVotes":"ferryVotes:"+ISL;
+const loadVotes=()=>{let v={};try{v=JSON.parse(localStorage.getItem(vkey())||"{}")}catch(e){}if(ISL==="硫黄島")Object.keys(DEMO_VOTES).forEach(k=>{if(v[k]==null)v[k]=DEMO_VOTES[k]});return v};
+let votes=loadVotes();
+
+const save=()=>{try{localStorage.setItem(vkey(),JSON.stringify(votes))}catch(e){}};
+const app=document.getElementById("app");let tab="yoso";
+const API="https://script.google.com/macros/s/AKfycbyYhdO4-pQNZhM1k9eyrGgxArB7DQdaQfynV38F7GZBWZG4VAt5ZhbojGu-QhOwOa4/exec";
+let UID;try{UID=localStorage.getItem("ferryUid");if(!UID){UID=(crypto.randomUUID?crypto.randomUUID():String(Math.random()).slice(2)+Date.now());localStorage.setItem("ferryUid",UID)}}catch(e){UID=String(Math.random()).slice(2)}
+let SV={votes:{},respondents:0},wk=0;
+const mekey=()=>ISL==="硫黄島"?"ferryMe":"ferryMe:"+ISL;
+const loadMe=()=>{try{return JSON.parse(localStorage.getItem(mekey())||"null")}catch(e){return null}};
+let ME=loadMe();
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const saveMe=()=>{try{localStorage.setItem(mekey(),JSON.stringify(ME))}catch(e){}};
+const IQ=()=>"&island="+encodeURIComponent(ISL);
+function registerMe(){if(ME)return;const isl=ISL;fetch(API+"?action=register&uid="+encodeURIComponent(UID)+IQ()).then(r=>r.json()).then(j=>{if(j.no&&isl===ISL){ME={no:j.no,name:j.name};saveMe();if(!document.querySelector(".backbig"))render()}}).catch(()=>{})}
+registerMe();
+function setIsl(v){if(v==="__new"){alert("島の追加は、サンプルです。「うちの島でもやりたい」という方は、作った人に声をかけてください。");render();return}if(!ISLANDS.includes(v))return;ISL=v;try{localStorage.setItem("ferryIsl",v)}catch(e){}ME=loadMe();votes=loadVotes();SV={votes:{},respondents:0};wk=0;tab="yoso";render();loadSV().then(()=>{if(!document.querySelector(".backbig"))render()});registerMe()}
+function rename(){const v=prompt("表示する名前を入れてください（ひらがな・カタカナ・漢字・英語OK。20文字まで）",ME?ME.name:"");if(v==null)return;const nm=v.replace(/[<>"']/g,"").trim().slice(0,20);if(!nm||!ME)return;ME.name=nm;saveMe();render();fetch(API+"?action=name&uid="+encodeURIComponent(UID)+"&name="+encodeURIComponent(nm)+IQ()).catch(()=>{})}
+const loadSV=()=>{const isl=ISL;return fetch(API+"?island="+encodeURIComponent(isl)).then(r=>r.json()).then(j=>{if(isl!==ISL)return;SV=j;Object.entries(j.actual||{}).forEach(([k,w])=>{const i=wordIdx(k,w);if(i!=null)ACTUAL[k]=i})}).catch(()=>{})};
+loadSV().then(()=>{if(!document.querySelector(".backbig"))render()});
+
+function tally(key){const P=opts(key);let c;if(ISL==="硫黄島"&&DEMO_VOTES[key]!=null){c=seed(key,P.length).slice();const v=votes[key];if(v!=null&&v<c.length)c[v]++}else{c=(SV.votes[key]||[0,0,0]).slice(0,P.length).map(Number)}const n=c.reduce((a,b)=>a+b,0);return{P,c,tot:Math.max(1,n),n}}
+function summary(key){
+ const{P,c,tot,n}=tally(key),top=c.indexOf(Math.max(...c)),me=votes[key];
+ let s=`みんなの予想：${P[top].n} ${Math.round(c[top]/tot*100)}%（${n}票）`;
+ if(me!=null&&me<c.length){const rank=[...c].sort((a,b)=>b-a).indexOf(c[me])+1;s+=`<br>あなた：${P[me].n}（${rank}位・${Math.round(c[me]/tot*100)}%）`}
+ return s;
+}
+function shell(body){
+ const T=[["yoso","予想する"],["kekka","これまでの結果"],["yotei","船便予定"],["tenki","天気・運航"]];
+ app.innerHTML=`<h1>フェリー、出る？出ない？</h1><div class="sub">予想は前日の24時まで。週は月曜〜日曜。</div>
+ <div class="sub">島：<select onchange="setIsl(this.value)" style="font-size:16px;padding:6px 10px;background:var(--card);color:var(--fg);border:2px solid var(--edge);border-radius:8px">${ISLANDS.map(x=>`<option${x===ISL?" selected":""}>${x}</option>`).join("")}<option value="__new">＋新しい島を追加</option></select></div>
+ <div class="sub">あなた：<b>${ME?esc(ME.name):"番号を取得中…"}</b>${ME&&ME.name!==ME.no?`（番号 ${esc(ME.no)}）`:""} <button class="nav" style="display:inline-block;width:auto;padding:4px 12px;font-size:13px;border:2px solid var(--edge)" onclick="rename()">名前を変える</button></div>
+ <div class="tabs">${T.map(([k,n])=>`<button class="${tab==k?"on":""}" onclick="go('${k}')">${n}</button>`).join("")}</div>${body}
+ <div class="note">試作：票の数字と「実際の結果」はサンプルです。保存はこの端末だけ。</div>`;
+ window.scrollTo(0,0);
+}
+function go(t){tab=t;render()}
+function render(){tab=="yoso"?yoso():tab=="kekka"?kekka():tab=="yotei"?yotei():tenki()}
+function weeks(){const g=[];open.forEach(d=>{const ws=fmt(weekStart(d.t));let w=g.find(x=>x.ws===ws);if(!w){w={ws,days:[],t:weekStart(d.t)};g.push(w)}w.days.push(d)});return g}
+function wlabel(w){const e=new Date(w.t);e.setDate(e.getDate()+6);return `${lab(w.t).replace(/（.）/,"")}〜${lab(e).replace(/（.）/,"")} の週（月〜日）`}
+function NOTICE(){return `<div class="card" style="font-size:14px;line-height:1.6">⚠ 実際の運航は、${ISL==="硫黄島"?'<a href="https://mishimamura.com/" target="_blank" rel="noopener" style="color:#2f6fdc">三島村役場の情報</a>':"役場・船会社の公式の情報"}で確認してください。ここは「みんなの予想」です。</div>`}
+function yoso(){
+ const G=weeks();if(wk>=G.length)wk=0;const w=G[wk];
+ const done=w.days.filter(d=>votes[d.key]!=null).length;
+ let h=`${NOTICE()}<h2>${wlabel(w)}</h2><div class="sub">1週間えらんで、いちばん下の青いボタンでまとめて送ります（予想済み ${done}/${w.days.length}）。いままでの回答者：${SV.respondents}人</div>`;
+ w.days.forEach(d=>{
+  const me=votes[d.key];
+  h+=`<div class="card"><div class="day">${d.label}${me!=null?" ✓":""} <span class="pl">${tag(d.key)}</span></div><div class="opts">${opts(d.key).map((p,j)=>`<button class="${p.c} ${me===j?"sel":(me!=null?"dim":"")}" onclick="pick('${d.key}',${j})">${p.n}</button>`).join("")}</div></div>`;
+ });
+ h+=`<button class="blue" onclick="submitWeek()">予想結果まとめ（送信して見る）</button><div class="opts" style="grid-template-columns:1fr 1fr">${wk>0?`<button class="nav" onclick="wk--;render()">← 前の週</button>`:"<span></span>"}${wk<G.length-1?`<button class="nav" onclick="wk++;render()">次の週 →</button>`:"<span></span>"}</div>`;
+ h+=shareCard();shell(h);
+}
+const shareUrl=()=>location.href.split("?")[0].split("#")[0];
+function shareCard(){const u=encodeURIComponent(shareUrl());const t=encodeURIComponent("フェリー、出るの？出ないの？｜島のみんなの予想サイト");
+ const a=(h,n)=>`<a class="lk" style="margin:0" target="_blank" rel="noopener" href="${h}"><b>${n}</b></a>`;
+ return `<div class="card" style="margin-top:14px"><div class="day">このページを共有する</div><div class="opts"><button class="blue" style="margin:0" onclick="shareNative()">共有する（スマホの共有メニュー）</button><button class="nav" onclick="copyLink()">リンクをコピー</button>${a("https://line.me/R/msg/text/?"+t+"%0A"+u,"LINEで送る")}${a("https://twitter.com/intent/tweet?text="+t+"&url="+u,"Xで投稿")}${a("https://www.facebook.com/sharer/sharer.php?u="+u,"Facebookで共有")}</div><div class="sub" id="shmsg" style="margin-top:8px"></div></div>`}
+function shareNative(){if(navigator.share){navigator.share({title:"フェリー、出るの？出ないの？",text:"島のみんなの予想サイト",url:shareUrl()}).catch(()=>{})}else copyLink()}
+function copyLink(){const url=shareUrl();const done=()=>{const m=document.getElementById("shmsg");if(m)m.textContent="リンクをコピーしました"};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done).catch(()=>prompt("このリンクをコピーしてください",url))}else prompt("このリンクをコピーしてください",url)}
+function pick(k,j){votes[k]=j;save();const y=window.scrollY;yoso();window.scrollTo(0,y)}
+function submitWeek(){
+ const w=weeks()[wk];
+ const items=w.days.filter(d=>votes[d.key]!=null).map(d=>({date:d.key,idx:votes[d.key],label:opts(d.key)[votes[d.key]].n}));
+ if(!items.length){alert("予想を1つ以上えらんでください");return}
+ app.innerHTML='<div class="card">送信中…（1週間ぶんを、まとめて1回で送っています）</div>';
+ fetch(API,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({uid:UID,island:ISL,items})}).catch(()=>{}).then(()=>loadSV()).then(()=>showWeek());
+}
+function showWeek(){
+ const w=weeks()[wk];
+ let h=`<h1>予想結果まとめ</h1><div class="sub">${wlabel(w)}。回答者：${SV.respondents}人</div>`;
+ w.days.forEach(d=>{
+  const{P,c,tot,n}=tally(d.key),me=votes[d.key];
+  let mine=`<div class="sub">この日は予想していません</div>`;
+  if(me!=null&&me<P.length){const rank=[...c].sort((a,b)=>b-a).indexOf(c[me])+1;mine=`<div class="me" style="font-size:16px">あなた：${P[me].n}（${rank}位・${Math.round(c[me]/tot*100)}%）</div>`}
+  h+=`<div class="card"><div class="day">${d.label} <span class="pl">${tag(d.key)}</span></div>${mine}${P.map((p,j)=>`<div class="bar ${j==me?"mine":""}"><div class="l"><span>${p.n}${j==me?" ←あなた":""}</span><span>${Math.round(c[j]/tot*100)}%（${c[j]}票）</span></div><div class="t"><div class="f" style="width:${c[j]/tot*100}%;background:${p.k}"></div></div></div>`).join("")}<div class="sub">全${n}票</div></div>`;
+ });
+ h+=`<button class="backbig" onclick="go('yoso')">予想のページに戻る</button>`;
+ app.innerHTML=h;window.scrollTo(0,0);
+}
+function kekka(){
+ const keys=[...Array(14)].map((_,i)=>mk(-i)).filter(d=>votes[d.key]!=null||actOf(d.key)!=null);
+ let h=`<div class="sub">過ぎた日の「予想」と「実際」。</div>`;
+ if(!keys.length)h+=`<div class="card">まだありません。</div>`;
+ keys.forEach(d=>{
+  const P=opts(d.key),me=votes[d.key],ac=actOf(d.key);
+  let badge=`<span class="wait">結果待ち</span>`;
+  if(ac!=null&&me!=null)badge=me===ac?`<span class="hit">ぴったり！当たり</span>`:`<span class="miss">はずれ</span>`;
+  else if(ac!=null)badge=`<span class="wait">予想なし</span>`;
+  h+=`<div class="card past"><div class="day">${d.label} <span class="pl">${tag(d.key)}</span>${badge}</div>
+  <div class="sum">あなたの予想：${me!=null?P[me].n:"（なし）"}<br>実際：${ac!=null?P[ac].n:"（まだ）"}<br>${summary(d.key)}</div></div>`;
+ });
+ shell(h);
+}
+function yotei(){
+ const rows=(ISL==="硫黄島"?Object.keys(SCHED):[]).sort().filter(k=>k>=todayKey).map(k=>{const t=new Date(k+"T00:00:00");return`<tr><td class="${t.getDay()==0?"sun":""}">${lab(t)}</td><td>${tag(k)}</td></tr>`}).join("");
+ shell(`<div class="sub">${ISL==="硫黄島"?"今後の出入港の予定（村の広報・令和8年10・11月）":"この島の予定表は、まだ載せていません"}</div><div class="card"><table>${rows}</table></div>`);
+}
+function tenki(){
+ const L=[["運航情報（三島村役場）","今日のフェリーの出航情報。朝6時ごろに更新","https://mishimamura.com/"],["天気（ウェザーニュース 三島村）","今日・明日・1週間先まで","https://weathernews.jp/onebox/tenki/kagoshima/46303/"],["風（ウェザーニュース 三島村）","風の強さ・向き","https://weathernews.jp/onebox/wind/kyushu/kagoshima/46303/"],["台風情報（ウェザーニュース）","台風の進路予想図","https://weathernews.jp/typhoon/"],["Yahoo!天気（鹿児島県）","県の天気。三島村だけのページは無し","https://weather.yahoo.co.jp/weather/jp/46/"],["海の天気（ウミテンキ 三島村）","時間ごとの海・風","https://www.umitenki.jp/citiesweather/detail/463035/1hour"],["気象庁（台風の地図）","台風の位置と進路","https://www.jma.go.jp/bosai/map.html#3/23.08/144.229/&elem=root&typhoon=all&contents=typhoon"],["予想図（weather-gpv.info）","天気の予想図（GPV）","http://weather-gpv.info/"]];
+ shell(`<div class="sub">船が出るかの判断に使うサイトです（外のサイトに移ります）。</div><div class="grid">${L.map(([n,d,u])=>`<a class="lk" href="${u}" target="_blank" rel="noopener"><b>${n}</b><span>${d}</span></a>`).join("")}</div>`);
+}
+function vote(k,j){votes[k]=j;save();app.innerHTML='<div class="card">送信中…</div>';const P=opts(k);fetch(API,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({uid:UID,date:k,idx:j,label:P[j].n})}).catch(()=>{}).then(()=>loadSV()).then(()=>result(k))}
+function result(k){
+ const{P,c,tot,n}=tally(k),me=votes[k],t=new Date(k+"T00:00:00");
+ const rank=[...c].sort((a,b)=>b-a).indexOf(c[me])+1;
+ app.innerHTML=`<button class="back" onclick="go('yoso')">← 戻る</button><h1>${lab(t)} <span class="pl">${tag(k)}</span></h1>
+ <div class="card"><div class="me">あなたは ${rank}位（${Math.round(c[me]/tot*100)}%）</div>
+ ${P.map((p,j)=>`<div class="bar ${j==me?"mine":""}"><div class="l"><span>${p.n}${j==me?" ←あなた":""}</span><span>${Math.round(c[j]/tot*100)}%（${c[j]}票）</span></div><div class="t"><div class="f" style="width:${c[j]/tot*100}%;background:${p.k}"></div></div></div>`).join("")}
+ <div class="sub">全${n}票</div></div>
+ <button class="backbig" onclick="go('yoso')">予想のページに戻る</button>`;
+ window.scrollTo(0,0);
+}
+render();
+</script></body></html>
