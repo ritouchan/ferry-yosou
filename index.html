@@ -57,15 +57,17 @@ const open=[...Array(14)].map((_,i)=>mk(i+1));
 const weekStart=t=>{const s=new Date(t);s.setDate(s.getDate()-((s.getDay()+6)%7));return s};
 // ※ サンプル：票の数字・実際の結果はダミー（本物ではありません）
 const seed=(key,n)=>{const d=+key.slice(-2);return [...Array(n).keys()].map(i=>((d*7+i*13)%17)+3)};
-const DEMO_VOTES={"2026-10-23":1,"2026-10-24":0,"2026-10-25":0};   // サンプルの予想（0始まり）
-const ACTUAL={"2026-10-23":1,"2026-10-24":0};const actOf=k=>ISL==="硫黄島"?ACTUAL[k]:undefined;       // サンプルの実際の結果
+const DEMO_VOTES={};   // サンプルの予想（0始まり）
+const ACTUAL={};const actOf=k=>ISL==="硫黄島"?ACTUAL[k]:undefined;       // サンプルの実際の結果
 const SHEET="https://docs.google.com/spreadsheets/d/1ZVWGKN5dFf_U9v9rNoGhbpI0E6kQ4eq6hgua5-iIgYE/gviz/tq?tqx=out:csv";
 const wordIdx=(key,w)=>sched(key)===""?(w=="振替"?1:(w=="欠航"||w=="便なし")?0:null):(w=="出る"?0:w=="日帰り"?1:w=="欠航"?2:null);
 const ISLANDS=["硫黄島","屋久島","宮古島"];
 let ISL="硫黄島";try{const x=localStorage.getItem("ferryIsl");if(ISLANDS.includes(x))ISL=x}catch(e){}
 const vkey=()=>ISL==="硫黄島"?"ferryVotes":"ferryVotes:"+ISL;
-const loadVotes=()=>{let v={};try{v=JSON.parse(localStorage.getItem(vkey())||"{}")}catch(e){}if(ISL==="硫黄島")Object.keys(DEMO_VOTES).forEach(k=>{if(v[k]==null)v[k]=DEMO_VOTES[k]});return v};
+const loadVotes=()=>{let v={};try{v=JSON.parse(localStorage.getItem(vkey())||"{}")}catch(e){}if(ISL==="硫黄島")["2026-10-23","2026-10-24","2026-10-25"].forEach(k=>{delete v[k]});return v};
 let votes=loadVotes();
+const skey=()=>ISL==="硫黄島"?"ferrySent":"ferrySent:"+ISL;let sent={};const loadSent=()=>{try{sent=JSON.parse(localStorage.getItem(skey())||"{}")}catch(e){sent={}}};loadSent();
+const saveSent=()=>{try{localStorage.setItem(skey(),JSON.stringify(sent))}catch(e){}};
 
 const save=()=>{try{localStorage.setItem(vkey(),JSON.stringify(votes))}catch(e){}};
 const app=document.getElementById("app");let tab="yoso";
@@ -80,7 +82,7 @@ const saveMe=()=>{try{localStorage.setItem(mekey(),JSON.stringify(ME))}catch(e){
 const IQ=()=>"&island="+encodeURIComponent(ISL);
 function registerMe(){if(ME)return;const isl=ISL;fetch(API+"?action=register&uid="+encodeURIComponent(UID)+IQ()).then(r=>r.json()).then(j=>{if(j.no&&isl===ISL){ME={no:j.no,name:j.name};saveMe();if(!document.querySelector(".backbig"))render()}}).catch(()=>{})}
 registerMe();
-function setIsl(v){if(v==="__new"){alert("島の追加は、サンプルです。「うちの島でもやりたい」という方は、作った人に声をかけてください。");render();return}if(!ISLANDS.includes(v))return;ISL=v;try{localStorage.setItem("ferryIsl",v)}catch(e){}ME=loadMe();votes=loadVotes();SV={votes:{},respondents:0};wk=0;tab="yoso";render();loadSV().then(()=>{if(!document.querySelector(".backbig"))render()});registerMe()}
+function setIsl(v){if(v==="__new"){alert("島の追加は、サンプルです。「うちの島でもやりたい」という方は、作った人に声をかけてください。");render();return}if(!ISLANDS.includes(v))return;ISL=v;try{localStorage.setItem("ferryIsl",v)}catch(e){}ME=loadMe();votes=loadVotes();loadSent();SV={votes:{},respondents:0};wk=0;tab="yoso";render();loadSV().then(()=>{if(!document.querySelector(".backbig"))render()});registerMe()}
 function rename(){const v=prompt("表示する名前を入れてください（ひらがな・カタカナ・漢字・英語OK。20文字まで）",ME?ME.name:"");if(v==null)return;const nm=v.replace(/[<>"']/g,"").trim().slice(0,20);if(!nm||!ME)return;ME.name=nm;saveMe();render();fetch(API+"?action=name&uid="+encodeURIComponent(UID)+"&name="+encodeURIComponent(nm)+IQ()).catch(()=>{})}
 const loadSV=()=>{const isl=ISL;return fetch(API+"?island="+encodeURIComponent(isl)).then(r=>r.json()).then(j=>{if(isl!==ISL)return;SV=j;Object.entries(j.actual||{}).forEach(([k,w])=>{const i=wordIdx(k,w);if(i!=null)ACTUAL[k]=i})}).catch(()=>{})};
 loadSV().then(()=>{if(!document.querySelector(".backbig"))render()});
@@ -94,30 +96,30 @@ function summary(key){
 }
 function shell(body){
  const T=[["yoso","予想する"],["kekka","これまでの結果"],["yotei","船便予定"],["tenki","天気・運航"]];
- app.innerHTML=`<h1>フェリー、出る？出ない？</h1><div class="sub">予想は前日の24時まで。週は月曜〜日曜。</div>
+ app.innerHTML=`<h1>フェリー、出る？出ない？</h1><div class="sub">予想は前日の24時まで。3日ずつ予想します。</div>
  <div class="sub">島：<select onchange="setIsl(this.value)" style="font-size:16px;padding:6px 10px;background:var(--card);color:var(--fg);border:2px solid var(--edge);border-radius:8px">${ISLANDS.map(x=>`<option${x===ISL?" selected":""}>${x}</option>`).join("")}<option value="__new">＋新しい島を追加</option></select></div>
- <div class="sub">あなた：<b>${ME?esc(ME.name):"番号を取得中…"}</b>${ME&&ME.name!==ME.no?`（番号 ${esc(ME.no)}）`:""} <button class="nav" style="display:inline-block;width:auto;padding:4px 12px;font-size:13px;border:2px solid var(--edge)" onclick="rename()">名前を変える</button></div>
+ <div class="sub">あなた：<b>${ME?esc(ME.name):"番号を取得中…"}</b>${ME&&ME.name!==ME.no?`（番号 ${aiEsc(ME.no)}）`:""} <button class="nav" style="display:inline-block;width:auto;padding:4px 12px;font-size:13px;border:2px solid var(--edge)" onclick="rename()">名前を変える</button></div>
  <div class="tabs">${T.map(([k,n])=>`<button class="${tab==k?"on":""}" onclick="go('${k}')">${n}</button>`).join("")}</div>${body}
  <div class="note">試作：票の数字と「実際の結果」はサンプルです。保存はこの端末だけ。</div>`;
  window.scrollTo(0,0);
 }
 function go(t){tab=t;render()}
 function render(){tab=="yoso"?yoso():tab=="kekka"?kekka():tab=="yotei"?yotei():tenki()}
-function weeks(){const g=[];open.forEach(d=>{const ws=fmt(weekStart(d.t));let w=g.find(x=>x.ws===ws);if(!w){w={ws,days:[],t:weekStart(d.t)};g.push(w)}w.days.push(d)});return g}
-function wlabel(w){const e=new Date(w.t);e.setDate(e.getDate()+6);return `${lab(w.t).replace(/（.）/,"")}〜${lab(e).replace(/（.）/,"")} の週（月〜日）`}
+function win(){const m=Math.max(0,open.length-3);if(wk>m)wk=m;return open.slice(wk,wk+3)}
 function NOTICE(){return `<div class="card" style="font-size:14px;line-height:1.6">⚠ 実際の運航は、${ISL==="硫黄島"?'<a href="https://mishimamura.com/" target="_blank" rel="noopener" style="color:#2f6fdc">三島村役場の情報</a>':"役場・船会社の公式の情報"}で確認してください。ここは「みんなの予想」です。</div>`}
 function aiEsc(x){return String(x==null?"":x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 const aiIdx=k=>{const a=ISL==="硫黄島"&&SV.aipick&&SV.aipick[k];return a?wordIdx(k,a.w):null};
 function yoso(){
- const G=weeks();if(wk>=G.length)wk=0;const w=G[wk];
- const done=w.days.filter(d=>votes[d.key]!=null).length;
- let h=`${NOTICE()}<h2>${wlabel(w)}</h2><div class="sub">1週間えらんで、いちばん下の青いボタンでまとめて送ります（予想済み ${done}/${w.days.length}）。いままでの回答者：${SV.respondents}人</div>`;
- w.days.forEach(d=>{
-  const me=votes[d.key];
-  h+=`<div class="card"><div class="day">${d.label}${me!=null?" ✓":""} <span class="pl">${tag(d.key)}</span></div><div class="opts">${opts(d.key).map((p,j)=>`<button class="${p.c} ${me===j?"sel":(me!=null?"dim":"")}" onclick="pick('${d.key}',${j})">${p.n}${me!=null&&aiIdx(d.key)===j?'<span class="aib">🤖AI</span>':""}</button>`).join("")}</div></div>`;
+ const D=win(),m=Math.max(0,open.length-3);
+ const done=D.filter(d=>votes[d.key]!=null).length;
+ const tl=`${now.getMonth()+1}月${now.getDate()}日（${W[now.getDay()]}）`;
+ let h=`<div style="font-size:22px;font-weight:800;margin:20px 0 4px"><span style="font-size:13px;font-weight:600;color:var(--mut);margin-right:8px">今日</span>${tl}</div><div class="sub">3日分えらんで、下の青いボタンでまとめて送ります（予想済み ${done}/3）。いままでの回答者：${SV.respondents}人</div>`;
+ D.forEach(d=>{
+  const me=votes[d.key];const st=sent[d.key]==null?"":(sent[d.key]===me?' <span class="pl">送信済み</span>':' <span class="pl">変更あり</span>');
+  h+=`<div class="card"><div class="day">${d.label}${me!=null?" ✓":""} <span class="pl">${tag(d.key)}</span>${st}</div><div class="opts">${opts(d.key).map((p,j)=>`<button class="${p.c} ${me===j?"sel":(me!=null?"dim":"")}" onclick="pick('${d.key}',${j})">${p.n}${me!=null&&aiIdx(d.key)===j?'<span class="aib">🤖AI</span>':""}</button>`).join("")}</div></div>`;
  });
- h+=`<button class="blue" onclick="submitWeek()">予想結果まとめ（送信して見る）</button><div class="opts" style="grid-template-columns:1fr 1fr">${wk>0?`<button class="nav" onclick="wk--;render()">← 前の週</button>`:"<span></span>"}${wk<G.length-1?`<button class="nav" onclick="wk++;render()">次の週 →</button>`:"<span></span>"}</div>`;
- h+=shareCard();shell(h);
+ h+=`<button class="blue" onclick="submitWin()">3日分を送信して見る</button><div class="opts" style="grid-template-columns:1fr 1fr">${wk>0?`<button class="nav" onclick="wk=Math.max(0,wk-3);render()">← 前の3日</button>`:"<span></span>"}${wk<m?`<button class="nav" onclick="wk=Math.min(m,wk+3);render()">次の3日 →</button>`:"<span></span>"}</div><div class="sub" style="margin:10px 0 0;text-align:center">予想は前日の24時まで変更できます。送り直すと上書きされます。</div>`;
+ h+=shareCard()+`<div style="margin-top:14px">${NOTICE()}</div>`;shell(h);
 }
 const shareUrl=()=>location.href.split("?")[0].split("#")[0];
 function shareCard(){const u=encodeURIComponent(shareUrl());const t=encodeURIComponent("フェリー、出るの？出ないの？｜島のみんなの予想サイト");
@@ -136,17 +138,16 @@ function igShare(){copyLink();setTimeout(()=>{const m=document.getElementById("s
 function shareNative(){if(navigator.share){navigator.share({title:"フェリー、出るの？出ないの？",text:"島のみんなの予想サイト",url:shareUrl()}).catch(()=>{})}else copyLink()}
 function copyLink(){const url=shareUrl();const done=()=>{const m=document.getElementById("shmsg");if(m)m.textContent="リンクをコピーしました"};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done).catch(()=>prompt("このリンクをコピーしてください",url))}else prompt("このリンクをコピーしてください",url)}
 function pick(k,j){votes[k]=j;save();const y=window.scrollY;yoso();window.scrollTo(0,y)}
-function submitWeek(){
- const w=weeks()[wk];
- const items=w.days.filter(d=>votes[d.key]!=null).map(d=>({date:d.key,idx:votes[d.key],label:opts(d.key)[votes[d.key]].n}));
+function submitWin(){
+ const D=win();
+ const items=D.filter(d=>votes[d.key]!=null).map(d=>({date:d.key,idx:votes[d.key],label:opts(d.key)[votes[d.key]].n}));
  if(!items.length){alert("予想を1つ以上えらんでください");return}
- app.innerHTML='<div class="card">送信中…（1週間ぶんを、まとめて1回で送っています）</div>';
- fetch(API,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({uid:UID,island:ISL,items})}).catch(()=>{}).then(()=>loadSV()).then(()=>showWeek());
+ app.innerHTML='<div class="card">送信中…（3日分を、まとめて1回で送っています）<div class="sub" style="margin:8px 0 0">予想は前日の24時まで変更できます。送り直すと上書きされます。</div></div>';
+ fetch(API,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify({uid:UID,island:ISL,items})}).catch(()=>{}).then(()=>{items.forEach(i=>{sent[i.date]=i.idx});saveSent()}).then(()=>loadSV()).then(()=>showWin(D));
 }
-function showWeek(){
- const w=weeks()[wk];
- let h=`<h1>予想結果まとめ</h1><div class="sub">${wlabel(w)}。回答者：${SV.respondents}人</div>`;
- w.days.forEach(d=>{
+function showWin(D){
+ let h=`<h1>予想結果まとめ</h1><div class="sub">${D.map(d=>d.label).join("・")}の予想。回答者：${SV.respondents}人</div>`;
+ D.forEach(d=>{
   const{P,c,tot,n}=tally(d.key),me=votes[d.key];
   let mine=`<div class="sub">この日は予想していません</div>`;
   if(me!=null&&me<P.length){const rank=[...c].sort((a,b)=>b-a).indexOf(c[me])+1;mine=`<div class="me" style="font-size:16px">あなた：${P[me].n}（${rank}位・${Math.round(c[me]/tot*100)}%）</div>`}
