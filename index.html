@@ -104,10 +104,12 @@ function render(){tab=="yoso"?yoso():tab=="kekka"?kekka():tab=="yotei"?yotei():t
 function weeks(){const g=[];open.forEach(d=>{const ws=fmt(weekStart(d.t));let w=g.find(x=>x.ws===ws);if(!w){w={ws,days:[],t:weekStart(d.t)};g.push(w)}w.days.push(d)});return g}
 function wlabel(w){const e=new Date(w.t);e.setDate(e.getDate()+6);return `${lab(w.t).replace(/（.）/,"")}〜${lab(e).replace(/（.）/,"")} の週（月〜日）`}
 function NOTICE(){return `<div class="card" style="font-size:14px;line-height:1.6">⚠ 実際の運航は、${ISL==="硫黄島"?'<a href="https://mishimamura.com/" target="_blank" rel="noopener" style="color:#2f6fdc">三島村役場の情報</a>':"役場・船会社の公式の情報"}で確認してください。ここは「みんなの予想」です。</div>`}
+function aiEsc(x){return String(x==null?"":x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function AICARD(){const a=SV.ai;if(ISL!=="硫黄島"||!a||!a.text)return"";const p=String(a.date||"").split("-");const dl=p.length==3?Number(p[1])+"/"+Number(p[2]):"";return `<div class="card" style="font-size:14px;line-height:1.6"><b>🤖 フェリーは出る？ AIの見方（実験中）</b><div class="sub" style="margin:2px 0 6px">風の観測値と島の記録を参考に、AIが見ています（${aiEsc(dl)}朝）</div>${aiEsc(a.text)}${a.official?`<div style="margin-top:6px">役場の発表：<b>${aiEsc(a.official)}</b></div>`:""}${a.next?`<div style="margin-top:4px">${aiEsc(a.next)}</div>`:""}<div style="margin-top:8px;font-size:12px;opacity:.75">最終判断は役場（船舶課）が当日朝にします。実際の結果は役場の情報が正で、AIはその前の参考です。<br>参考データ：${aiEsc(a.src)}（出典：気象庁ホームページ、三島村役場。加工して表示）</div></div>`}
 function yoso(){
  const G=weeks();if(wk>=G.length)wk=0;const w=G[wk];
  const done=w.days.filter(d=>votes[d.key]!=null).length;
- let h=`${NOTICE()}<h2>${wlabel(w)}</h2><div class="sub">1週間えらんで、いちばん下の青いボタンでまとめて送ります（予想済み ${done}/${w.days.length}）。いままでの回答者：${SV.respondents}人</div>`;
+ let h=`${NOTICE()}${AICARD()}<h2>${wlabel(w)}</h2><div class="sub">1週間えらんで、いちばん下の青いボタンでまとめて送ります（予想済み ${done}/${w.days.length}）。いままでの回答者：${SV.respondents}人</div>`;
  w.days.forEach(d=>{
   const me=votes[d.key];
   h+=`<div class="card"><div class="day">${d.label}${me!=null?" ✓":""} <span class="pl">${tag(d.key)}</span></div><div class="opts">${opts(d.key).map((p,j)=>`<button class="${p.c} ${me===j?"sel":(me!=null?"dim":"")}" onclick="pick('${d.key}',${j})">${p.n}</button>`).join("")}</div></div>`;
