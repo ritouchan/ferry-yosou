@@ -32,6 +32,8 @@ button{font:inherit;border:0;border-radius:10px;padding:12px;color:#fff;cursor:p
 .ic{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;border:0;padding:0;color:#fff;font-weight:800;font-size:12px;text-decoration:none;cursor:pointer}.ic svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 a.lk{display:block;background:var(--card);border-radius:14px;padding:14px;margin-bottom:12px;color:var(--fg);text-decoration:none}a.lk b{display:block}a.lk span{font-size:13px;color:var(--mut)}
 table{width:100%;border-collapse:collapse;font-size:14px}td{padding:6px 4px;border-bottom:1px solid rgba(128,128,128,.2)}.sun{color:#d0504a}
+.aib{float:right;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.7);border-radius:12px;padding:0 8px;font-size:12px;font-weight:700}
+.r4{display:flex;gap:10px;padding:3px 0;font-size:15px}.l4{flex:0 0 3.6em;color:var(--mut);font-size:13px;padding-top:1px}.ok4{color:var(--a);font-weight:700}.ng4{color:var(--c);font-weight:700}.ainote{font-size:12px;color:var(--mut);line-height:1.5;margin:0 0 10px}
 </style></head><body><main id="app"></main>
 <script>
 const P3=[{n:"通常通り出る",c:"o0",k:"var(--a)"},{n:"日帰り便に変更して出る",c:"o1",k:"var(--b)"},{n:"欠航",c:"o2",k:"var(--c)"}];
@@ -105,14 +107,14 @@ function weeks(){const g=[];open.forEach(d=>{const ws=fmt(weekStart(d.t));let w=
 function wlabel(w){const e=new Date(w.t);e.setDate(e.getDate()+6);return `${lab(w.t).replace(/（.）/,"")}〜${lab(e).replace(/（.）/,"")} の週（月〜日）`}
 function NOTICE(){return `<div class="card" style="font-size:14px;line-height:1.6">⚠ 実際の運航は、${ISL==="硫黄島"?'<a href="https://mishimamura.com/" target="_blank" rel="noopener" style="color:#2f6fdc">三島村役場の情報</a>':"役場・船会社の公式の情報"}で確認してください。ここは「みんなの予想」です。</div>`}
 function aiEsc(x){return String(x==null?"":x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function AICARD(){const a=SV.ai;if(ISL!=="硫黄島"||!a||!a.text)return"";const p=String(a.date||"").split("-");const dl=p.length==3?Number(p[1])+"/"+Number(p[2]):"";return `<div class="card" style="font-size:14px;line-height:1.6"><b>🤖 フェリーは出る？ AIの見方（実験中）</b><div class="sub" style="margin:2px 0 6px">風の観測値と島の記録を参考に、AIが見ています（${aiEsc(dl)}朝）</div>${aiEsc(a.text)}${a.official?`<div style="margin-top:6px">役場の発表：<b>${aiEsc(a.official)}</b></div>`:""}${a.next?`<div style="margin-top:4px">${aiEsc(a.next)}</div>`:""}<div style="margin-top:8px;font-size:12px;opacity:.75">最終判断は役場（船舶課）が当日朝にします。実際の結果は役場の情報が正で、AIはその前の参考です。<br>参考データ：${aiEsc(a.src)}（出典：気象庁ホームページ、三島村役場。加工して表示）</div></div>`}
+const aiIdx=k=>{const a=ISL==="硫黄島"&&SV.aipick&&SV.aipick[k];return a?wordIdx(k,a.w):null};
 function yoso(){
  const G=weeks();if(wk>=G.length)wk=0;const w=G[wk];
  const done=w.days.filter(d=>votes[d.key]!=null).length;
- let h=`${NOTICE()}${AICARD()}<h2>${wlabel(w)}</h2><div class="sub">1週間えらんで、いちばん下の青いボタンでまとめて送ります（予想済み ${done}/${w.days.length}）。いままでの回答者：${SV.respondents}人</div>`;
+ let h=`${NOTICE()}<h2>${wlabel(w)}</h2><div class="sub">1週間えらんで、いちばん下の青いボタンでまとめて送ります（予想済み ${done}/${w.days.length}）。いままでの回答者：${SV.respondents}人</div>`;
  w.days.forEach(d=>{
   const me=votes[d.key];
-  h+=`<div class="card"><div class="day">${d.label}${me!=null?" ✓":""} <span class="pl">${tag(d.key)}</span></div><div class="opts">${opts(d.key).map((p,j)=>`<button class="${p.c} ${me===j?"sel":(me!=null?"dim":"")}" onclick="pick('${d.key}',${j})">${p.n}</button>`).join("")}</div></div>`;
+  h+=`<div class="card"><div class="day">${d.label}${me!=null?" ✓":""} <span class="pl">${tag(d.key)}</span></div><div class="opts">${opts(d.key).map((p,j)=>`<button class="${p.c} ${me===j?"sel":(me!=null?"dim":"")}" onclick="pick('${d.key}',${j})">${p.n}${me!=null&&aiIdx(d.key)===j?'<span class="aib">🤖AI</span>':""}</button>`).join("")}</div></div>`;
  });
  h+=`<button class="blue" onclick="submitWeek()">予想結果まとめ（送信して見る）</button><div class="opts" style="grid-template-columns:1fr 1fr">${wk>0?`<button class="nav" onclick="wk--;render()">← 前の週</button>`:"<span></span>"}${wk<G.length-1?`<button class="nav" onclick="wk++;render()">次の週 →</button>`:"<span></span>"}</div>`;
  h+=shareCard();shell(h);
@@ -155,16 +157,22 @@ function showWeek(){
 }
 function kekka(){
  const keys=[...Array(14)].map((_,i)=>mk(-i)).filter(d=>votes[d.key]!=null||actOf(d.key)!=null);
- let h=`<div class="sub">過ぎた日の「予想」と「実際」。</div>`;
+ const st={me:[0,0],all:[0,0],ai:[0,0]};
+ const rows=keys.map(d=>{const P=opts(d.key),me=votes[d.key],ac=actOf(d.key),ai=aiIdx(d.key),{c,tot,n}=tally(d.key);const top=n?c.indexOf(Math.max(...c)):null;
+  if(ac!=null){[["me",me],["all",top],["ai",ai]].forEach(([z,j])=>{if(j!=null){st[z][1]++;if(j===ac)st[z][0]++}})}
+  return{d,P,me,ac,ai,c,tot,top}});
+ const pc=a=>a[1]?Math.round(a[0]/a[1]*100)+"%（"+a[0]+"/"+a[1]+"）":"—（0/0）";
+ let h=`<div class="card"><div class="day">これまでの正解率</div><div class="r4"><span class="l4">あなた</span><b>${pc(st.me)}</b></div><div class="r4"><span class="l4">みんな</span><b>${pc(st.all)}</b></div><div class="r4"><span class="l4">AI</span><b>${pc(st.ai)}</b></div></div>`;
  if(!keys.length)h+=`<div class="card">まだありません。</div>`;
- keys.forEach(d=>{
-  const P=opts(d.key),me=votes[d.key],ac=actOf(d.key);
+ rows.forEach(({d,P,me,ac,ai,c,tot,top})=>{
   let badge=`<span class="wait">結果待ち</span>`;
   if(ac!=null&&me!=null)badge=me===ac?`<span class="hit">ぴったり！当たり</span>`:`<span class="miss">はずれ</span>`;
   else if(ac!=null)badge=`<span class="wait">予想なし</span>`;
-  h+=`<div class="card past"><div class="day">${d.label} <span class="pl">${tag(d.key)}</span>${badge}</div>
-  <div class="sum">あなたの予想：${me!=null?P[me].n:"（なし）"}<br>実際：${ac!=null?P[ac].n:"（まだ）"}<br>${summary(d.key)}</div></div>`;
+  const mark=j=>ac!=null&&j!=null?(j===ac?' <span class="ok4">○</span>':' <span class="ng4">×</span>'):"";
+  const row=(l,j,x)=>`<div class="r4"><span class="l4">${l}</span><span>${j!=null?P[j].n:"（なし）"}${x||""}${l==="実際"?"":mark(j)}</span></div>`;
+  h+=`<div class="card past"><div class="day">${d.label} <span class="pl">${tag(d.key)}</span>${badge}</div>${row("あなた",me)}${row("みんな",top,top!=null?` <span style="color:var(--mut);font-size:13px">${Math.round(c[top]/tot*100)}%</span>`:"")}${row("AI",ai)}${row("実際",ac)}</div>`;
  });
+ h+=`<div class="ainote" style="margin-top:14px">🤖 AIは、風・波の観測値と島の記録を参考にした見方です（実験中）。最終判断は役場、実際の結果は役場の情報が正で、AIはその前の参考です。<br>出典：気象庁ホームページ、Open-Meteo.com（CC BY 4.0）、三島村役場。加工して表示。</div>`;
  shell(h);
 }
 function yotei(){
