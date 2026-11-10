@@ -34,6 +34,28 @@ a.lk{display:block;background:var(--card);border-radius:14px;padding:14px;margin
 table{width:100%;border-collapse:collapse;font-size:14px}td{padding:6px 4px;border-bottom:1px solid rgba(128,128,128,.2)}.sun{color:#d0504a}
 .aib{float:right;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.7);border-radius:12px;padding:0 8px;font-size:12px;font-weight:700}
 .r4{display:flex;gap:10px;padding:3px 0;font-size:15px}.l4{flex:0 0 3.6em;color:var(--mut);font-size:13px;padding-top:1px}.ok4{color:var(--a);font-weight:700}.ng4{color:var(--c);font-weight:700}.ainote{font-size:12px;color:var(--mut);line-height:1.5;margin:0 0 10px}
+
+.cals{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:339px){.cals{grid-template-columns:1fr}}
+.cm{background:var(--card);border-radius:12px;padding:8px 6px 10px}
+.cmh{font-weight:800;font-size:14px;text-align:center;margin:2px 0 6px}
+.cg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cg i{display:block}
+.wd{text-align:center;font-size:10px;font-weight:600;color:var(--mut);padding-bottom:2px}.wd.sun{color:#d0504a}.wd.sat{color:#2f6fdc}
+.cd{border-radius:6px;min-height:34px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:2px 0;line-height:1.15;background:rgba(128,128,128,.07)}
+.cd .dn{font-size:11px;font-weight:600}.cd .dn.sun{color:#d0504a}
+.cd .mk{font-size:10px;font-weight:800;margin-top:1px;letter-spacing:-.5px}
+.cd.b{background:rgba(42,143,106,.22)}.cd.b .mk{color:#2a8f6a}
+.cd.o{background:rgba(224,160,48,.26)}.cd.o .mk{color:#b27a12}
+.cd.i{background:rgba(150,100,200,.2)}.cd.i .mk{color:#8453b8}
+.cd.n .mk,.cd.u .mk{color:var(--mut);font-weight:600}
+.cd.pa{opacity:.42;filter:grayscale(.85)}
+.cd.td{background:#2f6fdc;opacity:1;filter:none}.cd.td .dn,.cd.td .mk{color:#fff}
+.lg{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--mut);margin:10px 0 0}
+.lg span b{display:inline-block;min-width:1.6em;text-align:center;border-radius:4px;padding:0 3px;margin-right:3px;font-size:11px}
+.lg .b b{background:rgba(42,143,106,.22);color:#2a8f6a}.lg .o b{background:rgba(224,160,48,.26);color:#b27a12}.lg .i b{background:rgba(150,100,200,.2);color:#8453b8}.lg .t b{background:#2f6fdc;color:#fff}
+.src{font-size:12px;color:var(--mut);line-height:1.6;margin-top:12px}.src a{color:#2f6fdc}
+.sb{margin-top:14px}.sb .url{display:flex;gap:6px;margin:8px 0}.sb input{flex:1;min-width:0;font:13px/1.4 ui-monospace,monospace;padding:8px;border:2px solid var(--edge);border-radius:8px;background:var(--bg);color:var(--fg)}.sb ol{margin:8px 0 0;padding-left:1.3em;font-size:13px;line-height:1.7}.sb .nav{padding:8px 12px;font-size:13px;border:2px solid var(--edge);white-space:nowrap}.ref{opacity:.9}.ref a{color:#2f6fdc;word-break:break-all}
 </style></head><body><main id="app"></main>
 <script>
 const P3=[{n:"通常通り出る",c:"o0",k:"var(--a)"},{n:"日帰り便に変更して出る",c:"o1",k:"var(--b)"},{n:"欠航",c:"o2",k:"var(--c)"}];
@@ -45,7 +67,9 @@ const opts=k=>sched(k)===""?P2:sched(k)==="出入"?P3D:P3;
 // 村の広報（令和8年10・11月）の船便予定。出＝出港／入＝入港／出入＝日帰り便。空欄の日は便なし
 const OCT="入,出入,出,入,,出入,出,入,出入,出,入,,出,入,,出,入,出入,,出入,出,入,出入,出,入,,出入,出,入,出入,出".split(",");
 const NOV="入,,出入,出,入,出,入,,出入,,出,入,出入,出,入,,,,,出入,出,入,,,,,出入,出,入,".split(",");
-const SCHED={};OCT.forEach((v,i)=>SCHED["2026-10-"+String(i+1).padStart(2,"0")]=v);NOV.forEach((v,i)=>SCHED["2026-11-"+String(i+1).padStart(2,"0")]=v);
+const DEC="出入,出,入,出入,出,入,,出入,出,入,出入,出,入,,出入,出,入,,出,入,,出入,出,入,出入,出,入,出入,,出入,".split(",");
+const JAN=",出入,出,入,,出,入,出入,出,入,,出入,出,入,出,入,出入,,出,,入,出入,出,入,,出入,出,入,出,入".split(",");
+const SCHED={};OCT.forEach((v,i)=>SCHED["2026-10-"+String(i+1).padStart(2,"0")]=v);NOV.forEach((v,i)=>SCHED["2026-11-"+String(i+1).padStart(2,"0")]=v);DEC.forEach((v,i)=>SCHED["2026-12-"+String(i+1).padStart(2,"0")]=v);JAN.forEach((v,i)=>SCHED["2027-01-"+String(i+1).padStart(2,"0")]=v);
 const tag=k=>{const v=sched(k);return v==null?"予定未掲載":v==""?"便なし":v=="出入"?"出入（日帰り便）":v=="出"?"出港":"入港"};
 const W=["日","月","火","水","木","金","土"];
 const fmt=t=>`${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,"0")}-${String(t.getDate()).padStart(2,"0")}`;
@@ -176,9 +200,41 @@ function kekka(){
  h+=`<div class="ainote" style="margin-top:14px">🤖 AIは、風・波の観測値と島の記録を参考にした見方です（実験中）。最終判断は役場、実際の結果は役場の情報が正で、AIはその前の参考です。<br>出典：気象庁ホームページ、Open-Meteo.com（CC BY 4.0）、三島村役場。加工して表示。</div>`;
  shell(h);
 }
+const MI=(y,m)=>y*12+m,MLO=MI(2026,9),MHI=MI(2027,0);
+let cm=null;
+function calMonth(mi){
+ const y=Math.floor(mi/12),m=mi%12,first=new Date(y,m,1).getDay(),n=new Date(y,m+1,0).getDate();
+ let h=`<div class="cm"><div class="cmh">${y}年${m+1}月</div><div class="cg">`+W.map((w,i)=>`<b class="wd${i==0?" sun":i==6?" sat":""}">${w}</b>`).join("");
+ for(let i=0;i<first;i++)h+="<i></i>";
+ for(let d=1;d<=n;d++){
+  const k=`${y}-${String(m+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`,v=ISL==="硫黄島"?SCHED[k]:undefined,wd=(first+d-1)%7;
+  const c=v==null?"u":v==""?"n":v=="出入"?"b":v=="出"?"o":"i",mk=v==null?"?":v==""?"－":v;
+  h+=`<div class="cd ${c}${k<todayKey?" pa":""}${k===todayKey?" td":""}"><span class="dn${wd==0?" sun":""}">${d}</span><span class="mk">${mk}</span></div>`;
+ }
+ return h+"</div></div>";
+}
+const ICS="https://ritouchan.github.io/ferry-yosou/ferry-mishima.ics";
+function copyIcs(){const el=document.getElementById("icsurl");const m=document.getElementById("icsmsg");const ok=()=>{if(m)m.textContent="URLをコピーしました"};try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ICS).then(ok).catch(()=>{el.select();if(m)m.textContent="URLを選択しました。コピーしてください"})}else{el.select();if(m)m.textContent="URLを選択しました。コピーしてください"}}catch(e){el.select()}}
 function yotei(){
- const rows=(ISL==="硫黄島"?Object.keys(SCHED):[]).sort().filter(k=>k>=todayKey).map(k=>{const t=new Date(k+"T00:00:00");return`<tr><td class="${t.getDay()==0?"sun":""}">${lab(t)}</td><td>${tag(k)}</td></tr>`}).join("");
- shell(`<div class="sub">${ISL==="硫黄島"?"今後の出入港の予定（村の広報・令和8年10・11月）":"この島の予定表は、まだ載せていません"}</div><div class="card"><table>${rows}</table></div>`);
+ if(ISL!=="硫黄島"){shell(`<div class="sub">この島の予定表は、まだ載せていません</div>`);return}
+ const cur=MI(now.getFullYear(),now.getMonth());
+ if(cm==null)cm=Math.min(Math.max(cur,MLO),MHI);
+ const dec=cm+1>=MI(2026,11)&&cm<=MI(2027,0);
+ const dia=cm<=MI(2027,0)&&cm+1>=MI(2027,0);
+ const jan=cm+1>MI(2027,0);
+ const nov=cm<=MI(2026,10)&&cm+1>=MI(2026,10);
+ shell(`<div class="sub">出入港の予定（三島村役場の出入港予定表）。今日は青で表示しています。</div>
+ <div class="cals">${calMonth(cm)}${calMonth(cm+1)}</div>
+ <div class="lg"><span class="b"><b>出入</b>日帰り便</span><span class="o"><b>出</b>出港</span><span class="i"><b>入</b>入港</span><span class="t"><b>今日</b></span><span><b>－</b>便なし</span><span><b>?</b>未確認</span></div>
+ <div class="opts" style="grid-template-columns:1fr 1fr;margin-top:12px">${cm>MLO?'<button class="nav" onclick="cm--;yotei()">← 前の月</button>':"<span></span>"}${cm<MHI?'<button class="nav" onclick="cm++;yotei()">次の月 →</button>':"<span></span>"}</div>
+ ${cm!==cur&&cur>=MLO&&cur<=MHI?'<div style="text-align:center;margin-top:8px"><button class="nav" style="display:inline-block;width:auto;padding:6px 16px;font-size:13px;border:2px solid var(--edge)" onclick="cm=null;yotei()">今月に戻る</button></div>':""}
+
+ <div class="card sb"><div class="day">Googleカレンダーでも見る（購読）</div><div class="sub" style="margin-bottom:0">予定をタップすると、説明欄のリンクから、このサイトを開けます。出入港の予定は、役場の予定表と同じです。</div>
+ <div class="url"><input id="icsurl" readonly value="${ICS}" onclick="this.select()"><button class="nav" onclick="copyIcs()">コピー</button></div><div class="sub" id="icsmsg" style="margin:0"></div>
+ <ol><li>パソコンのGoogleカレンダーを開く</li><li>左の「他のカレンダー」の「＋」→「URLで追加」</li><li>上のURLを貼って「カレンダーを追加」</li></ol>
+ <div class="sub" style="margin:8px 0 0">スマホのアプリには、パソコンで追加すると出ます。iPhoneの標準カレンダーは、「照会するカレンダー」に、先頭を webcal:// に変えたURLを入れます。反映には、数時間〜1日かかることがあります。</div></div>
+ <div class="card ref"><div class="day">参考：別の人が作った公開カレンダー</div><div class="sub" style="margin-bottom:6px">作成者は不明です。正確さは保証されません。実際の運航は、役場の情報で確認してください。</div><a href="https://calendar.google.com/calendar/embed?src=bbfq3dj23ova9uc1ljo6e4q0as%40group.calendar.google.com&ctz=Asia%2FTokyo" target="_blank" rel="noopener">Googleカレンダーで見る（既存）</a></div>
+ <div class="src">${dec?"12月・1月分は、役場の予定表に「認可申請中」と書かれています。変更になることがあります。<br>":""}${nov?"11月16日〜18日と23日〜25日は、フェリーとしま2のドック入りに伴い、フェリーみしまが十島村へ運航するため、三島村の便はありません。<br>":""}${dia?"1月19日〜21日は、特定診療科のため運航ダイヤが変わります（21日の鹿児島入港は16:05）。<br>":""}${jan?"2027年2月以降は、まだ載っていないため「?」にしています。<br>":""}出典：三島村役場「三島航路出入港予定表」（<a href="https://mishimamura.com/ferry/" target="_blank" rel="noopener">https://mishimamura.com/ferry/</a>）。出港・入港の表示は鹿児島港が基準。実際の運航は、役場の情報で確認してください。</div>`);
 }
 function tenki(){
  const L=[["運航情報（三島村役場）","今日のフェリーの出航情報。朝6時ごろに更新","https://mishimamura.com/"],["天気（ウェザーニュース 三島村）","今日・明日・1週間先まで","https://weathernews.jp/onebox/tenki/kagoshima/46303/"],["風（ウェザーニュース 三島村）","風の強さ・向き","https://weathernews.jp/onebox/wind/kyushu/kagoshima/46303/"],["台風情報（ウェザーニュース）","台風の進路予想図","https://weathernews.jp/typhoon/"],["Yahoo!天気（鹿児島県）","県の天気。三島村だけのページは無し","https://weather.yahoo.co.jp/weather/jp/46/"],["海の天気（ウミテンキ 三島村）","時間ごとの海・風","https://www.umitenki.jp/citiesweather/detail/463035/1hour"],["気象庁（台風の地図）","台風の位置と進路","https://www.jma.go.jp/bosai/map.html#3/23.08/144.229/&elem=root&typhoon=all&contents=typhoon"],["予想図（weather-gpv.info）","天気の予想図（GPV）","http://weather-gpv.info/"]];
