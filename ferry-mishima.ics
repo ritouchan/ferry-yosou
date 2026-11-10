@@ -1,0 +1,1393 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ritouchan//ferry-yosou//JA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:【予測サイト】フェリーみしま予定｜説明欄
+ のリンクから
+X-WR-TIMEZONE:Asia/Tokyo
+X-WR-CALDESC:三島村役場の出入港予定表をもとにした予定
+ です。予想サイト：https://ritouchan.github.io/ferry-yosou/　実
+ 際の運航は役場の情報で確認してください。
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
+BEGIN:VTIMEZONE
+TZID:Asia/Tokyo
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0900
+TZOFFSETTO:+0900
+TZNAME:JST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:2026-11-01-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261101T140500
+DTEND;TZID=Asia/Tokyo:20261101T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-03-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261103T093000
+DTEND;TZID=Asia/Tokyo:20261103T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-03-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261103T195000
+DTEND;TZID=Asia/Tokyo:20261103T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-04-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261104T093000
+DTEND;TZID=Asia/Tokyo:20261104T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-05-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261105T140500
+DTEND;TZID=Asia/Tokyo:20261105T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-06-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261106T093000
+DTEND;TZID=Asia/Tokyo:20261106T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-07-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261107T140500
+DTEND;TZID=Asia/Tokyo:20261107T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-09-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261109T093000
+DTEND;TZID=Asia/Tokyo:20261109T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-09-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261109T195000
+DTEND;TZID=Asia/Tokyo:20261109T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-11-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261111T093000
+DTEND;TZID=Asia/Tokyo:20261111T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-12-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261112T140500
+DTEND;TZID=Asia/Tokyo:20261112T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-13-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261113T093000
+DTEND;TZID=Asia/Tokyo:20261113T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-13-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261113T195000
+DTEND;TZID=Asia/Tokyo:20261113T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-14-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261114T093000
+DTEND;TZID=Asia/Tokyo:20261114T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-15-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261115T140500
+DTEND;TZID=Asia/Tokyo:20261115T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-16-none@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;VALUE=DATE:20261116
+DTEND;VALUE=DATE:20261117
+SUMMARY:【予測サイト】便なし（運航の注記あり）
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）\n
+ フェリーとしま2のドック入りに伴い、フェリーみしま
+ は十島村へ運航します（役場のお知らせ）。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-17-none@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;VALUE=DATE:20261117
+DTEND;VALUE=DATE:20261118
+SUMMARY:【予測サイト】便なし（運航の注記あり）
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）\n
+ フェリーとしま2のドック入りに伴い、フェリーみしま
+ は十島村へ運航します（役場のお知らせ）。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-18-none@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:【予測サイト】便なし（運航の注記あり）
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）\n
+ フェリーとしま2のドック入りに伴い、フェリーみしま
+ は十島村へ運航します（役場のお知らせ）。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-20-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261120T093000
+DTEND;TZID=Asia/Tokyo:20261120T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-20-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261120T195000
+DTEND;TZID=Asia/Tokyo:20261120T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-21-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261121T093000
+DTEND;TZID=Asia/Tokyo:20261121T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-22-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261122T140500
+DTEND;TZID=Asia/Tokyo:20261122T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-23-none@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;VALUE=DATE:20261123
+DTEND;VALUE=DATE:20261124
+SUMMARY:【予測サイト】便なし（運航の注記あり）
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）\n
+ フェリーとしま2のドック入りに伴い、フェリーみしま
+ は十島村へ運航します（役場のお知らせ）。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-24-none@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;VALUE=DATE:20261124
+DTEND;VALUE=DATE:20261125
+SUMMARY:【予測サイト】便なし（運航の注記あり）
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）\n
+ フェリーとしま2のドック入りに伴い、フェリーみしま
+ は十島村へ運航します（役場のお知らせ）。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-25-none@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;VALUE=DATE:20261125
+DTEND;VALUE=DATE:20261126
+SUMMARY:【予測サイト】便なし（運航の注記あり）
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）\n
+ フェリーとしま2のドック入りに伴い、フェリーみしま
+ は十島村へ運航します（役場のお知らせ）。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-27-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261127T093000
+DTEND;TZID=Asia/Tokyo:20261127T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-27-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261127T195000
+DTEND;TZID=Asia/Tokyo:20261127T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-28-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261128T093000
+DTEND;TZID=Asia/Tokyo:20261128T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-11-29-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261129T140500
+DTEND;TZID=Asia/Tokyo:20261129T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年11月分（https://mishimamura.com/ferry/）
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-01-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261201T093000
+DTEND;TZID=Asia/Tokyo:20261201T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-01-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261201T195000
+DTEND;TZID=Asia/Tokyo:20261201T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-02-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261202T093000
+DTEND;TZID=Asia/Tokyo:20261202T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-03-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261203T140500
+DTEND;TZID=Asia/Tokyo:20261203T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-04-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261204T093000
+DTEND;TZID=Asia/Tokyo:20261204T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-04-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261204T195000
+DTEND;TZID=Asia/Tokyo:20261204T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-05-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261205T093000
+DTEND;TZID=Asia/Tokyo:20261205T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-06-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261206T140500
+DTEND;TZID=Asia/Tokyo:20261206T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-08-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261208T093000
+DTEND;TZID=Asia/Tokyo:20261208T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-08-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261208T195000
+DTEND;TZID=Asia/Tokyo:20261208T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-09-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261209T093000
+DTEND;TZID=Asia/Tokyo:20261209T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-10-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261210T140500
+DTEND;TZID=Asia/Tokyo:20261210T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-11-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261211T093000
+DTEND;TZID=Asia/Tokyo:20261211T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-11-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261211T195000
+DTEND;TZID=Asia/Tokyo:20261211T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-12-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261212T093000
+DTEND;TZID=Asia/Tokyo:20261212T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-13-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261213T140500
+DTEND;TZID=Asia/Tokyo:20261213T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-15-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261215T093000
+DTEND;TZID=Asia/Tokyo:20261215T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-15-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261215T195000
+DTEND;TZID=Asia/Tokyo:20261215T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-16-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261216T093000
+DTEND;TZID=Asia/Tokyo:20261216T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-17-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261217T140500
+DTEND;TZID=Asia/Tokyo:20261217T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-19-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261219T093000
+DTEND;TZID=Asia/Tokyo:20261219T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-20-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261220T140500
+DTEND;TZID=Asia/Tokyo:20261220T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-22-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261222T093000
+DTEND;TZID=Asia/Tokyo:20261222T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-22-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261222T195000
+DTEND;TZID=Asia/Tokyo:20261222T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-23-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261223T093000
+DTEND;TZID=Asia/Tokyo:20261223T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-24-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261224T140500
+DTEND;TZID=Asia/Tokyo:20261224T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-25-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261225T093000
+DTEND;TZID=Asia/Tokyo:20261225T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-25-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261225T195000
+DTEND;TZID=Asia/Tokyo:20261225T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-26-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261226T093000
+DTEND;TZID=Asia/Tokyo:20261226T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-27-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261227T140500
+DTEND;TZID=Asia/Tokyo:20261227T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-28-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261228T093000
+DTEND;TZID=Asia/Tokyo:20261228T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-28-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261228T195000
+DTEND;TZID=Asia/Tokyo:20261228T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-30-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261230T093000
+DTEND;TZID=Asia/Tokyo:20261230T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2026-12-30-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20261230T195000
+DTEND;TZID=Asia/Tokyo:20261230T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和8年12月分（https://mishimamura.com/ferry/）\n
+ この月の予定表は「認可申請中」です。変更の可能性
+ があります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-02-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270102T093000
+DTEND;TZID=Asia/Tokyo:20270102T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-02-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270102T195000
+DTEND;TZID=Asia/Tokyo:20270102T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-03-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270103T093000
+DTEND;TZID=Asia/Tokyo:20270103T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-04-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270104T140500
+DTEND;TZID=Asia/Tokyo:20270104T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-06-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270106T093000
+DTEND;TZID=Asia/Tokyo:20270106T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-07-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270107T140500
+DTEND;TZID=Asia/Tokyo:20270107T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-08-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270108T093000
+DTEND;TZID=Asia/Tokyo:20270108T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-08-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270108T195000
+DTEND;TZID=Asia/Tokyo:20270108T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-09-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270109T093000
+DTEND;TZID=Asia/Tokyo:20270109T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-10-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270110T140500
+DTEND;TZID=Asia/Tokyo:20270110T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-12-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270112T093000
+DTEND;TZID=Asia/Tokyo:20270112T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-12-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270112T195000
+DTEND;TZID=Asia/Tokyo:20270112T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-13-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270113T093000
+DTEND;TZID=Asia/Tokyo:20270113T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-14-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270114T140500
+DTEND;TZID=Asia/Tokyo:20270114T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-15-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270115T093000
+DTEND;TZID=Asia/Tokyo:20270115T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-16-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270116T140500
+DTEND;TZID=Asia/Tokyo:20270116T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-17-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270117T093000
+DTEND;TZID=Asia/Tokyo:20270117T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-17-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270117T195000
+DTEND;TZID=Asia/Tokyo:20270117T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-19-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270119T093000
+DTEND;TZID=Asia/Tokyo:20270119T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。\n特定診療科のため運航ダイヤを変更して
+ います（1月19日〜21日）。21日の鹿児島入港は16:05（役
+ 場のお知らせ）。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-20-none@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;VALUE=DATE:20270120
+DTEND;VALUE=DATE:20270121
+SUMMARY:【予測サイト】便なし（運航の注記あり）
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。\n特定診療科のため運航ダイヤを変更して
+ います（1月19日〜21日）。21日の鹿児島入港は16:05（役
+ 場のお知らせ）。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-21-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270121T160500
+DTEND;TZID=Asia/Tokyo:20270121T163500
+SUMMARY:【予測サイト】入港 16:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。\n特定診療科のため運航ダイヤを変更して
+ います（1月19日〜21日）。21日の鹿児島入港は16:05（役
+ 場のお知らせ）。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-22-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270122T093000
+DTEND;TZID=Asia/Tokyo:20270122T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-22-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270122T195000
+DTEND;TZID=Asia/Tokyo:20270122T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-23-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270123T093000
+DTEND;TZID=Asia/Tokyo:20270123T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-24-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270124T140500
+DTEND;TZID=Asia/Tokyo:20270124T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-26-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270126T093000
+DTEND;TZID=Asia/Tokyo:20270126T100000
+SUMMARY:【予測サイト】日帰り出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-26-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270126T195000
+DTEND;TZID=Asia/Tokyo:20270126T202000
+SUMMARY:【予測サイト】日帰り入港 19:50
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-27-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270127T093000
+DTEND;TZID=Asia/Tokyo:20270127T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-28-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270128T140500
+DTEND;TZID=Asia/Tokyo:20270128T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-29-out@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270129T093000
+DTEND;TZID=Asia/Tokyo:20270129T100000
+SUMMARY:【予測サイト】出港 9:30
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:2027-01-30-in@ritouchan.github.io
+DTSTAMP:20261110T012745Z
+DTSTART;TZID=Asia/Tokyo:20270130T140500
+DTEND;TZID=Asia/Tokyo:20270130T143500
+SUMMARY:【予測サイト】入港 14:05
+DESCRIPTION:鹿児島港を基準にした、フェリーみしまの予
+ 定です。\n予想サイト：https://ritouchan.github.io/ferry-yosou/\
+ n実際の運航は、役場の情報で確認してください（https:
+ //mishimamura.com/）。\n出典：三島村役場「三島航路出入
+ 港予定表」令和9年1月分（https://mishimamura.com/ferry/）\nこ
+ の月の予定表は「認可申請中」です。変更の可能性が
+ あります。
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
